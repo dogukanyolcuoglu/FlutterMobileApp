@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1048674454140-6vqfuauk6h15i9uictdhlp3u0r8dovhs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1048674454140-6vqfuauk6h15i9uictdhlp3u0r8dovhs</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1048674454140-a08hv188d4ic5gq25b64vosnlpoo60d2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBZEOgeI5kkj1o1Mg68WlliS44fC6bsbFw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1048674454140</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dogukanyolcuoglu.mobilUygulamaProjesi</string>
+	<key>PROJECT_ID</key>
+	<string>mobiluygulama-59a64</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mobiluygulama-59a64.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1048674454140:ios:5761ee94b7ac82c0bc17f9</string>
+</dict>
+</plist>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1048674454140",
+    "project_id": "mobiluygulama-59a64",
+    "storage_bucket": "mobiluygulama-59a64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048674454140:android:5cad4aa19f5e7d2ebc17f9",
+        "android_client_info": {
+          "package_name": "com.dogukanyolcuoglu.mobil_uygulama_projesi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048674454140-a08hv188d4ic5gq25b64vosnlpoo60d2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dogukanyolcuoglu.mobil_uygulama_projesi",
+            "certificate_hash": "883df62800af1fa235b88351938a282ba1494455"
+          }
+        },
+        {
+          "client_id": "1048674454140-tuju0p0run32klbntulgcmjmrhbqthev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGaGsRaRbRYvipLwdM2yMEEID1-cO_0y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048674454140-tuju0p0run32klbntulgcmjmrhbqthev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
