@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobil_uygulama_projesi/pages/homepage_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/login_screen.dart';
-import 'package:mobil_uygulama_projesi/class/user_preferences.dart';
+import '/pages/homepage_screen.dart';
+import '/pages/login_screen.dart';
+import '/class/user_preferences.dart';
 import 'package:provider/provider.dart';
 
 class DecisionTree extends StatefulWidget {

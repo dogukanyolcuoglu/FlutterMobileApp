@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:mobil_uygulama_projesi/class/questions.dart';
-import 'package:mobil_uygulama_projesi/model/question_model.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
-import 'package:mobil_uygulama_projesi/widgets/drawer.dart';
+import '/class/questions.dart';
+import '/model/question_model.dart';
+import '/router/constant.dart';
+import '/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
   final List<QuestionModel> argument;

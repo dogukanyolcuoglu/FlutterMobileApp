@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mobil_uygulama_projesi/class/user_preferences.dart';
-import 'package:mobil_uygulama_projesi/model/user.dart';
-import 'package:mobil_uygulama_projesi/pages/login_screen.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
-import 'package:mobil_uygulama_projesi/service/authentication.dart';
-import 'package:mobil_uygulama_projesi/service/database.dart';
-import 'package:mobil_uygulama_projesi/widgets/loading.dart';
+import '/class/user_preferences.dart';
+import '/model/user.dart';
+import '/pages/login_screen.dart';
+import '/router/constant.dart';
+import '/service/authentication.dart';
+import '/service/database.dart';
+import '/widgets/loading.dart';
 import 'package:provider/provider.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {

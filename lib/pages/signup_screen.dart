@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
-import 'package:mobil_uygulama_projesi/service/authentication.dart';
-import 'package:mobil_uygulama_projesi/service/database.dart';
+import '/router/constant.dart';
+import '/service/authentication.dart';
+import '/service/database.dart';
 
 class SignupPage extends StatefulWidget {
   @override

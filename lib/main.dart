@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mobil_uygulama_projesi/class/user_preferences.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
+import '/class/user_preferences.dart';
+import '/router/constant.dart';
 import 'package:provider/provider.dart';
-import 'package:mobil_uygulama_projesi/router/route.dart' as route;
+import '/router/route.dart' as route;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

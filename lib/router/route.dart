@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mobil_uygulama_projesi/pages/create_question_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/contact_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/homepage_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/login_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/person_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/reset_password_screen.dart';
-import 'package:mobil_uygulama_projesi/pages/signup_screen.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
-import 'package:mobil_uygulama_projesi/widgets/decision_tree.dart';
+import '/pages/create_question_screen.dart';
+import '/pages/contact_screen.dart';
+import '/pages/homepage_screen.dart';
+import '/pages/login_screen.dart';
+import '/pages/person_screen.dart';
+import '/pages/reset_password_screen.dart';
+import '/pages/signup_screen.dart';
+import '/router/constant.dart';
+import '/widgets/decision_tree.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   var arg = settings.arguments;

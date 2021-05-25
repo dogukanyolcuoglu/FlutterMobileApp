@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
-import 'package:mobil_uygulama_projesi/service/authentication.dart';
-import 'package:mobil_uygulama_projesi/class/user_preferences.dart';
+import '/router/constant.dart';
+import '/service/authentication.dart';
+import '/class/user_preferences.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {

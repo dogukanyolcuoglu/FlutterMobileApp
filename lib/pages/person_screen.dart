@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mobil_uygulama_projesi/class/user_preferences.dart';
-import 'package:mobil_uygulama_projesi/model/user.dart';
-import 'package:mobil_uygulama_projesi/service/database.dart';
-import 'package:mobil_uygulama_projesi/widgets/loading.dart';
+import '/class/user_preferences.dart';
+import '/model/user.dart';
+import '/service/database.dart';
+import '/widgets/loading.dart';
 import 'package:provider/provider.dart';
 
 class PersonPage extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobil_uygulama_projesi/model/question_model.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
+import '/model/question_model.dart';
+import '/router/constant.dart';
 
 class CreateQuestion extends StatefulWidget {
   @override

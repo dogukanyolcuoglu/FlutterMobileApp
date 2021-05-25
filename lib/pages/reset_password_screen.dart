@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:mobil_uygulama_projesi/router/constant.dart';
-import 'package:mobil_uygulama_projesi/service/authentication.dart';
+import '/router/constant.dart';
+import '/service/authentication.dart';
 
 class ResetPassword extends StatefulWidget {
   @override
