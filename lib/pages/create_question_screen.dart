@@ -179,7 +179,7 @@ class _CreateQuestionState extends State<CreateQuestion> {
         msg: "Question adding success",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 3,
+        timeInSecForIosWeb: 1,
         backgroundColor: Colors.grey[300],
         textColor: Colors.black,
         fontSize: 16.0,

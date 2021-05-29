@@ -256,7 +256,7 @@ class _SignupPageState extends State<SignupPage> {
                 msg: "Email verification link has sent to your email",
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 3,
+                timeInSecForIosWeb: 2,
                 backgroundColor: Colors.grey[300],
                 textColor: Colors.black,
                 fontSize: 16.0,

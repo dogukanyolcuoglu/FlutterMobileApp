@@ -15,19 +15,23 @@ class PersonPage extends StatefulWidget {
 
 class _PersonPageState extends State<PersonPage> {
   final DatabaseService _databaseService = DatabaseService();
+  final _textController = TextEditingController();
 
   String useruid;
   String imageUrl;
+  bool _enabled;
 
   @override
   void initState() {
     super.initState();
     Provider.of<UserPreferences>(context, listen: false).loadPref();
+    _enabled = true;
   }
 
   @override
   Widget build(BuildContext context) {
     useruid = Provider.of<UserPreferences>(context).uid;
+    final size = MediaQuery.of(context).size.height;
 
     return StreamBuilder<DocumentSnapshot>(
       stream: _databaseService.getData(useruid),
@@ -58,106 +62,149 @@ class _PersonPageState extends State<PersonPage> {
                   ),
                 ),
               ),
-              body: Center(
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        margin: EdgeInsets.fromLTRB(16, 22, 16, 12),
-                        padding: EdgeInsets.only(left: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 6,
-                              offset: Offset(2.0, 4.0),
-                            )
-                          ],
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+              body: SafeArea(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 7,
+                        child: Stack(
                           children: [
-                            Expanded(
-                              flex: 3,
-                              child: Stack(
-                                children: [
-                                  imagePlace(),
-                                  Positioned(
-                                    right: 12,
-                                    bottom: 22,
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.photo_camera,
-                                        size: 30,
-                                        color: Colors.teal,
-                                      ),
-                                      onPressed: () {
-                                        showModalBottomSheet(
-                                            context: context,
-                                            builder: ((builder) =>
-                                                bottomSheet()));
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            Padding(
+                              padding: const EdgeInsets.all(24.0),
+                              child: imagePlace(),
                             ),
-                            Expanded(
-                              flex: 4,
-                              child: Container(
-                                padding: EdgeInsets.all(8),
-                                child: Wrap(
-                                  runSpacing: 20,
-                                  children: [
-                                    Wrap(
-                                      spacing: 30,
-                                      runSpacing: 3,
-                                      children: [
-                                        Text(
-                                          "Name Surname:",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          userData.nameSurname,
-                                          style: TextStyle(fontSize: 17),
-                                        ),
-                                      ],
-                                    ),
-                                    Wrap(
-                                      spacing: 10,
-                                      runSpacing: 3,
-                                      children: [
-                                        Text(
-                                          "Email:",
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          userData.email,
-                                          style: TextStyle(fontSize: 17),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                            Positioned(
+                              right: 98,
+                              bottom: 48,
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.photo_camera,
+                                  size: size * 0.04,
+                                  color: Colors.teal,
                                 ),
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                      context: context,
+                                      builder: ((builder) => bottomSheet()));
+                                },
                               ),
                             ),
                           ],
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 6,
-                      child: Container(),
-                    )
-                  ],
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          "User Information",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 20),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 6,
+                                  offset: Offset(2.0, 4.0),
+                                )
+                              ],
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Wrap(
+                                          spacing: 100,
+                                          runSpacing: 0,
+                                          children: [
+                                            Text(
+                                              "Name Surname:",
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            TextField(
+                                              onChanged: (value) {
+                                                _changeName();
+                                              },
+                                              controller: _textController,
+                                              readOnly: _enabled,
+                                              style: TextStyle(fontSize: 20),
+                                              decoration: InputDecoration(
+                                                hintStyle: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black,
+                                                ),
+                                                hintText: _enabled == true
+                                                    ? userData.nameSurname
+                                                    : "",
+                                                suffixIcon: InkWell(
+                                                  onTap: _onTapEdit,
+                                                  child: _enabled == true
+                                                      ? Icon(
+                                                          Icons.edit_off,
+                                                          color: Colors.black,
+                                                        )
+                                                      : Icon(
+                                                          Icons.edit,
+                                                          color: Colors.black,
+                                                        ),
+                                                ),
+                                                border: InputBorder.none,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Wrap(
+                                          spacing: 100,
+                                          runSpacing: 5,
+                                          children: [
+                                            Text(
+                                              "Email:",
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              userData.email,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.black),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
@@ -169,17 +216,28 @@ class _PersonPageState extends State<PersonPage> {
     );
   }
 
+  void _onTapEdit() {
+    setState(() {
+      _enabled = !_enabled;
+    });
+  }
+
+  void _changeName() async {
+    return await _databaseService.editNameSurname(
+        useruid, _textController.text);
+  }
+
   Widget imagePlace() {
     double height = MediaQuery.of(context).size.height;
     return CircleAvatar(
       backgroundColor: Colors.grey[300],
-      radius: height,
+      radius: height / 4.7,
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         backgroundImage: imageUrl != ""
             ? NetworkImage(imageUrl)
             : AssetImage("assets/images/person-icon.png"),
-        radius: height * 0.08,
+        radius: height / 5.3,
       ),
     );
   }

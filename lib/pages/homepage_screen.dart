@@ -22,6 +22,9 @@ class _HomePageState extends State<HomePage> {
       "Doğruluk mu / Cesaretlik mi sorularını görebilmek için aşağıdaki butonlardan seçim yaparak başlayınız.";
   bool enabledTruth = true;
   bool enabledDare = true;
+  bool showQuestion = true;
+  List myTruthList = [];
+  List myDareList = [];
 
   _HomePageState({@required this.model});
 
@@ -108,9 +111,9 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   minWidth: double.infinity,
-                                  onPressed: enabledTruth
+                                  onPressed: showQuestion
                                       ? () => truthFunction("DOĞRULUK")
-                                      : null,
+                                      : () => myTruthFunction(),
                                   child: Padding(
                                     padding: const EdgeInsets.all(20.0),
                                     child: Text(
@@ -137,9 +140,9 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   minWidth: double.infinity,
-                                  onPressed: enabledDare
+                                  onPressed: showQuestion
                                       ? () => dareFunction("CESARETLİK")
-                                      : null,
+                                      : () => myDareFunction(),
                                   child: Padding(
                                     padding: const EdgeInsets.all(20.0),
                                     child: Text(
@@ -162,17 +165,9 @@ class _HomePageState extends State<HomePage> {
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: GestureDetector(
-                              onTap: () {
-                                if (model != null) {
-                                  model.forEach((element) {
-                                    print(element.question);
-                                  });
-                                } else {
-                                  print("data null");
-                                }
-                              },
+                              onTap: _onTapMyQuestion,
                               child: Text(
-                                "Benim Sorularımı Göster",
+                                "Benim sorularım ile başlasın",
                                 style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.blueAccent,
@@ -215,6 +210,40 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  _onTapMyQuestion() {
+    if (model != null && model.isNotEmpty) {
+      setState(() {
+        showQuestion = false;
+        title = "OKUYUNUZ";
+        str =
+            "Doğruluk mu / Cesaretlik mi sorularını görebilmek için aşağıdaki butonlardan seçim yaparak başlayınız.";
+      });
+      model.forEach((element) {
+        if (element.title == "Doğruluk") {
+          myTruthList.add(element.question);
+        } else {
+          myDareList.add(element.question);
+        }
+      });
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Warning"),
+            content: Text("Öncelikle soru eklemelisiniz."),
+            actions: [
+              FlatButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text("Okay"),
+              )
+            ],
+          );
+        },
+      );
+    }
+  }
+
   showAlertDialog(BuildContext context, String str) {
     // set up the buttons
     Widget continueButton = ElevatedButton(
@@ -241,9 +270,33 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  myTruthFunction() {
+    if (myTruthList.isNotEmpty) {
+      var rand = Random().nextInt(myTruthList.length);
+      setState(
+        () {
+          str = myTruthList[rand];
+          title = "DOĞRULUK";
+        },
+      );
+    }
+  }
+
+  myDareFunction() {
+    if (myDareList.isNotEmpty) {
+      var rand = Random().nextInt(myDareList.length);
+      setState(
+        () {
+          str = myDareList[rand];
+          title = "CESARETLİK";
+        },
+      );
+    }
+  }
+
   bool truthFunction(String type) {
     if (enabledTruth) {
-      var rand = Random().nextInt(question.questionsTruth.length - 1);
+      var rand = Random().nextInt(question.questionsTruth.length);
       setState(
         () {
           str = question.questionsTruth[rand];
@@ -263,7 +316,7 @@ class _HomePageState extends State<HomePage> {
 
   bool dareFunction(String type) {
     if (enabledDare) {
-      var rand = Random().nextInt(question.questionsDare.length - 1);
+      var rand = Random().nextInt(question.questionsDare.length);
       setState(() {
         str = question.questionsDare[rand];
         question.questionsDare.removeAt(rand);

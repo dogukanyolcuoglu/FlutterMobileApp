@@ -45,4 +45,14 @@ class DatabaseService {
     });
     return ref;
   }
+
+  Future editNameSurname(String uid, String nameSurname) async {
+    try {
+      await _firestore.collection("Persons").doc(uid).update({
+        'nameSurname': nameSurname,
+      }).then((value) => print("success change"));
+    } catch (e) {
+      return null;
+    }
+  }
 }
