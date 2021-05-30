@@ -16,6 +16,8 @@ class _CreateQuestionState extends State<CreateQuestion> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         leading: new IconButton(
@@ -64,47 +66,45 @@ class _CreateQuestionState extends State<CreateQuestion> {
                 ),
                 Divider(
                   color: Colors.grey,
+                  height: size * 0.04,
                 ),
                 Expanded(
                   flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(30.0),
-                            ),
+                  child: DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: const BorderRadius.all(
+                            const Radius.circular(30.0),
                           ),
-                          filled: true,
-                          hintStyle: TextStyle(color: Colors.grey[800]),
-                          fillColor: Colors.blue[200]),
-                      items: <String>[
-                        'Doğruluk',
-                        'Cesaretlik',
-                      ].map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: TextStyle(color: Colors.black, fontSize: 20),
-                          ),
-                        );
-                      }).toList(),
-                      hint: Text(
-                        "Please choose a title",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      onChanged: (String value) {
-                        setState(() {
-                          _chosenValue = value;
-                          print(_chosenValue);
-                        });
-                      },
+                        ),
+                        filled: true,
+                        hintStyle: TextStyle(color: Colors.grey[800]),
+                        fillColor: Colors.blue[200]),
+                    items: <String>[
+                      'Doğruluk',
+                      'Cesaretlik',
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: TextStyle(color: Colors.black, fontSize: 20),
+                        ),
+                      );
+                    }).toList(),
+                    hint: Text(
+                      "Please choose a title",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500),
                     ),
+                    onChanged: (String value) {
+                      setState(() {
+                        _chosenValue = value;
+                        print(_chosenValue);
+                      });
+                    },
                   ),
                 ),
                 Spacer(),

@@ -298,13 +298,16 @@ class _PersonPageState extends State<PersonPage> {
         _databaseService
             .updateData(useruid)
             .then((value) => _databaseService.addMedia(file, useruid));
+        Navigator.pop(context, false);
       } else {
         print("No Path Received");
       }
     } else {
       if (profileImage != null) {
         //Upload Image
-        _databaseService.addMedia(file, useruid);
+        _databaseService
+            .addMedia(file, useruid)
+            .then((value) => Navigator.pop(context, false));
       } else {
         print("No Path Received");
       }

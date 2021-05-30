@@ -129,12 +129,9 @@ class _SignupPageState extends State<SignupPage> {
                             child: MaterialButton(
                               minWidth: double.infinity,
                               onPressed: checkSignup,
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: Text(
-                                  "SIGN UP",
-                                  style: TextStyle(fontSize: 18),
-                                ),
+                              child: Text(
+                                "SIGN UP",
+                                style: TextStyle(fontSize: 18),
                               ),
                               textColor: Colors.black,
                               color: Colors.white,
