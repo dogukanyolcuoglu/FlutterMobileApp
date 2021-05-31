@@ -59,6 +59,9 @@ class _ContactPageState extends State<ContactPage> {
               },
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(top: 500),
+              padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 border: Border.all(width: 1),
                 borderRadius: BorderRadius.only(
@@ -67,9 +70,6 @@ class _ContactPageState extends State<ContactPage> {
                 ),
                 color: Colors.white,
               ),
-              margin: EdgeInsets.only(top: 500),
-              padding: EdgeInsets.all(16),
-              width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
                   Expanded(
@@ -116,10 +116,6 @@ class _ContactPageState extends State<ContactPage> {
                             style: TextStyle(fontSize: 19),
                           ),
                         ),
-                        // Text(
-                        //   "(0236) 314 10 10",
-                        //   style: TextStyle(fontSize: 19),
-                        // )
                       ],
                     ),
                   ),

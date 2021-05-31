@@ -63,147 +63,158 @@ class _PersonPageState extends State<PersonPage> {
                 ),
               ),
               body: SafeArea(
-                child: Center(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 7,
-                        child: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(24.0),
-                              child: imagePlace(),
-                            ),
-                            Positioned(
-                              right: 98,
-                              bottom: 48,
-                              child: IconButton(
-                                icon: Icon(
-                                  Icons.photo_camera,
-                                  size: size * 0.04,
-                                  color: Colors.teal,
-                                ),
-                                onPressed: () {
-                                  showModalBottomSheet(
-                                      context: context,
-                                      builder: ((builder) => bottomSheet()));
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          "User Information",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 4,
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 20),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 6,
-                                  offset: Offset(2.0, 4.0),
-                                )
-                              ],
-                            ),
-                            child: Column(
+                child: SingleChildScrollView(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height - 200,
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 7,
+                            child: Stack(
                               children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        child: Wrap(
-                                          spacing: 100,
-                                          runSpacing: 0,
-                                          children: [
-                                            Text(
-                                              "Name Surname:",
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            TextField(
-                                              onChanged: (value) {
-                                                _changeName();
-                                              },
-                                              controller: _textController,
-                                              readOnly: _enabled,
-                                              style: TextStyle(fontSize: 20),
-                                              decoration: InputDecoration(
-                                                hintStyle: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black,
-                                                ),
-                                                hintText: _enabled == true
-                                                    ? userData.nameSurname
-                                                    : "",
-                                                suffixIcon: InkWell(
-                                                  onTap: _onTapEdit,
-                                                  child: _enabled == true
-                                                      ? Icon(
-                                                          Icons.edit_off,
-                                                          color: Colors.black,
-                                                        )
-                                                      : Icon(
-                                                          Icons.edit,
-                                                          color: Colors.black,
-                                                        ),
-                                                ),
-                                                border: InputBorder.none,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Wrap(
-                                          spacing: 100,
-                                          runSpacing: 5,
-                                          children: [
-                                            Text(
-                                              "Email:",
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              userData.email,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                Padding(
+                                  padding: const EdgeInsets.all(24.0),
+                                  child: imagePlace(),
+                                ),
+                                Positioned(
+                                  right: 98,
+                                  bottom: 36,
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.photo_camera,
+                                      size: size * 0.04,
+                                      color: Colors.teal,
+                                    ),
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                          context: context,
+                                          builder: ((builder) =>
+                                              bottomSheet()));
+                                    },
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                              "User Information",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 20),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      blurRadius: 6,
+                                      offset: Offset(2.0, 4.0),
+                                    )
+                                  ],
+                                ),
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      flex: 3,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Wrap(
+                                              spacing: 100,
+                                              runSpacing: 0,
+                                              children: [
+                                                Text(
+                                                  "Name Surname:",
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                TextField(
+                                                  onChanged: (value) {
+                                                    _changeName();
+                                                  },
+                                                  controller: _textController,
+                                                  readOnly: _enabled,
+                                                  style:
+                                                      TextStyle(fontSize: 20),
+                                                  decoration: InputDecoration(
+                                                    hintStyle: TextStyle(
+                                                      fontSize: 20,
+                                                      color: Colors.black,
+                                                    ),
+                                                    hintText: _enabled == true
+                                                        ? userData.nameSurname
+                                                        : "",
+                                                    suffixIcon: InkWell(
+                                                      onTap: _onTapEdit,
+                                                      child: _enabled == true
+                                                          ? Icon(
+                                                              Icons.edit_off,
+                                                              color:
+                                                                  Colors.black,
+                                                            )
+                                                          : Icon(
+                                                              Icons.edit,
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
+                                                    ),
+                                                    border: InputBorder.none,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Wrap(
+                                              spacing: 100,
+                                              runSpacing: 5,
+                                              children: [
+                                                Text(
+                                                  "Email:",
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  userData.email,
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      color: Colors.black),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
